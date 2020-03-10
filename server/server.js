@@ -18,7 +18,7 @@ app.post('/todos',(req, res) => {
 	newTodo.save().then((doc) => {
 		res.send(doc);
 	}, (err) => {
-		res.send(err);
+		res.status(400).send(err);
 	});
 });
 
@@ -47,3 +47,5 @@ app.listen('3000', () => {
 // }, (err) => {
 // 	console.log('Unable to save user', err);
 // });
+
+module.exports = {app};
